@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="./Chart.min.js"></script>
+	<title>Document</title>
+</head>
+
+<body>
+
+	<canvas id="myChart"></canvas>
+
+	<form action="process.php" method="POST">
+		<label>City:
+			<select id="city" name="city">
+				<option value="Basel">Basel</option>
+				<option value="Lörrach">Lörrach</option>
+			</select>
+		</label>
+
+		<label>
+			<input type="date" name="date" min="2020-01-01">
+		</label>
+
+		<label for="">
+			Fälle:
+			<input type="text" name="cases">
+		</label>
+
+		<input type="submit" value="Submit">
+	</form>
+
+	<script src="./main.js"></script>
+</body>
+
+</html>
