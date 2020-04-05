@@ -46,17 +46,17 @@ function getGraph() {
     data: {
       datasets: [
         {
-          label: "Basel - Fälle",
-          data: dataBaselCases,
-          backgroundColor: ["rgba(235, 69, 89, 0.5)"],
-        },
-        {
           label: "Lörrach - Fälle",
           data: dataLoerrachCases,
 
-          backgroundColor: ["rgba(174, 239, 236, 1)"],
+          borderColor: ["#f6416c"],
           // Changes this dataset to become a line
           type: "line",
+        },
+        {
+          label: "Basel - Fälle",
+          data: dataBaselCases,
+          borderColor: ["#3490de"],
         },
       ],
       labels: dataTime,
