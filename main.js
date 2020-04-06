@@ -46,17 +46,19 @@ function getGraph() {
     data: {
       datasets: [
         {
-          label: "Lörrach - Fälle",
+          label: "Landkreis Lörrach",
           data: dataLoerrachCases,
 
           borderColor: ["#f6416c"],
+          backgroundColor: ["#f6416c"],
           // Changes this dataset to become a line
           type: "line",
         },
         {
-          label: "Basel - Fälle",
+          label: "Basel-Stadt",
           data: dataBaselCases,
           borderColor: ["#3490de"],
+          backgroundColor: ["#3490de"],
         },
       ],
       labels: dataTime,
