@@ -49,16 +49,16 @@ function getGraph() {
           label: "Landkreis Lörrach",
           data: dataLoerrachCases,
 
-          borderColor: ["#f6416c"],
-          backgroundColor: ["#f6416c"],
+          borderColor: ["#0f4471"],
+          backgroundColor: ["rgba(15, 67, 113, 1)"],
           // Changes this dataset to become a line
           type: "line",
         },
         {
           label: "Basel-Stadt",
           data: dataBaselCases,
-          borderColor: ["#3490de"],
-          backgroundColor: ["#3490de"],
+          borderColor: ["#fc3c3c"],
+          backgroundColor: ["rgba(252, 60, 60, 0.5)"],
         },
       ],
       labels: dataTime,
