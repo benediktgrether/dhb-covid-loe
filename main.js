@@ -14,6 +14,7 @@ let pointRadius = [];
 let hoverRadius = [];
 let backgroundColorBarBasel = [];
 let backgroundColorBarLoerrach = [];
+let dataNewCases = [];
 async function getData() {
   let response = await fetch("./data.json");
   let offer = await response.text();
@@ -104,7 +105,7 @@ function getBarGraph() {
           backgroundColor: backgroundColorBarBasel,
         },
       ],
-      labels: dataTime,
+      labels: dataNewCases,
     },
     // options: {
     //   elements: {
@@ -133,6 +134,8 @@ function getNewCasesBasel() {
   for (let i = 1; i < dataBaselCases.length; i++) {
     const element = dataBaselCases[i] - dataBaselCases[i - 1];
     baselNewCases.push(element);
+    const newDate = dataTime[i];
+    dataNewCases.push(newDate);
     backgroundColorBarBasel.push("rgba(252, 60, 60, 0.5)");
   }
 }
