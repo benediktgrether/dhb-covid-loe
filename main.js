@@ -36,7 +36,7 @@ function dataToFile(data) {
 
   Object.entries(dataBasel).map(([key, item], i) => {
     dataBaselCases.push(item.cases);
-    dataTime.push(item.date);
+    dataTime.push(formatDate(item.date));
     pointRadius.push(5);
     hoverRadius.push(6);
   });
@@ -86,4 +86,16 @@ function getGraph() {
       },
     },
   });
+}
+
+function formatDate(date) {
+  var d = new Date(date),
+    month = "" + (d.getMonth() + 1),
+    day = "" + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2) month = "0" + month;
+  if (day.length < 2) day = "0" + day;
+
+  return [day, month].join(".");
 }
