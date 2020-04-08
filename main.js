@@ -44,7 +44,6 @@ function dataToFile(data) {
   getNewCasesBasel();
   getNewCasesLoerrach();
   getBarGraph();
-  console.log(baselNewCases, loerrachNewCases);
 }
 
 function getGraph() {
