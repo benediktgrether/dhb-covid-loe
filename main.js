@@ -6,18 +6,14 @@ let dataBasel = [];
 let dataLoerrach = [];
 let date = [];
 let dataBaselCases = [];
+let baselNewCases = [];
+let loerrachNewCases = [];
 let dataLoerrachCases = [];
 let dataTime = [];
 let pointRadius = [];
 let hoverRadius = [];
-var colors = [
-  "rgb(28, 185, 135)",
-  "rgb(185, 28, 78)",
-  "rgb(28, 78, 185)",
-  "rgb(191, 206, 28)",
-  "rgb(191, 63, 191)",
-];
-
+let backgroundColorBarBasel = [];
+let backgroundColorBarLoerrach = [];
 async function getData() {
   let response = await fetch("./data.json");
   let offer = await response.text();
@@ -45,6 +41,10 @@ function dataToFile(data) {
   });
 
   getGraph();
+  getNewCasesBasel();
+  getNewCasesLoerrach();
+  getBarGraph();
+  console.log(baselNewCases, loerrachNewCases);
 }
 
 function getGraph() {
@@ -58,7 +58,7 @@ function getGraph() {
           data: dataLoerrachCases,
 
           borderColor: ["#0f4471"],
-          backgroundColor: ["rgba(15, 67, 113, 1)"],
+          backgroundColor: ["rgba(15, 67, 113, 0.5)"],
           pointRadius: pointRadius,
           hoverRadius: hoverRadius,
           pointBorderColor: "#333",
@@ -88,6 +88,36 @@ function getGraph() {
   });
 }
 
+function getBarGraph() {
+  var ctx = document.getElementById("myBar").getContext("2d");
+  var mixBarChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      datasets: [
+        {
+          label: "Landkreis Lörrach",
+          data: loerrachNewCases,
+          backgroundColor: backgroundColorBarLoerrach,
+        },
+        {
+          label: "Basel-Stadt",
+          data: baselNewCases,
+          backgroundColor: backgroundColorBarBasel,
+        },
+      ],
+      labels: dataTime,
+    },
+    // options: {
+    //   elements: {
+    //     point: {
+    //       borderColor: "#333",
+    //       backgroundColor: "#878787",
+    //     },
+    //   },
+    // },
+  });
+}
+
 function formatDate(date) {
   var d = new Date(date),
     month = "" + (d.getMonth() + 1),
@@ -98,4 +128,20 @@ function formatDate(date) {
   if (day.length < 2) day = "0" + day;
 
   return [day, month].join(".");
+}
+
+function getNewCasesBasel() {
+  for (let i = 1; i < dataBaselCases.length; i++) {
+    const element = dataBaselCases[i] - dataBaselCases[i - 1];
+    baselNewCases.push(element);
+    backgroundColorBarBasel.push("rgba(252, 60, 60, 0.5)");
+  }
+}
+
+function getNewCasesLoerrach() {
+  for (let i = 1; i < dataLoerrachCases.length; i++) {
+    const element = dataLoerrachCases[i] - dataLoerrachCases[i - 1];
+    loerrachNewCases.push(element);
+    backgroundColorBarLoerrach.push("rgba(15, 67, 113, 0.5)");
+  }
 }
