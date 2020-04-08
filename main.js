@@ -37,8 +37,8 @@ function dataToFile(data) {
   Object.entries(dataBasel).map(([key, item], i) => {
     dataBaselCases.push(item.cases);
     dataTime.push(item.date);
-    pointRadius.push(10);
-    hoverRadius.push(11);
+    pointRadius.push(5);
+    hoverRadius.push(6);
   });
   Object.entries(dataLoerrach).map(([key, item], i) => {
     dataLoerrachCases.push(item.cases);
@@ -61,7 +61,8 @@ function getGraph() {
           backgroundColor: ["rgba(15, 67, 113, 1)"],
           pointRadius: pointRadius,
           hoverRadius: hoverRadius,
-          // pointHoverBackgroundColor: ["#0f4471"],
+          pointBorderColor: "#333",
+          pointBackgroundColor: "#878787",
         },
         {
           label: "Basel-Stadt",
@@ -70,6 +71,8 @@ function getGraph() {
           backgroundColor: ["rgba(252, 60, 60, 0.5)"],
           pointRadius: pointRadius,
           hoverRadius: hoverRadius,
+          pointBorderColor: "#333",
+          pointBackgroundColor: "#878787",
         },
       ],
       labels: dataTime,
@@ -78,7 +81,7 @@ function getGraph() {
       elements: {
         point: {
           borderColor: "#333",
-          backgroundColor: "#000",
+          backgroundColor: "#878787",
         },
       },
     },
