@@ -37,8 +37,8 @@ function dataToFile(data) {
   Object.entries(dataBasel).map(([key, item], i) => {
     dataBaselCases.push(item.cases);
     dataTime.push(formatDate(item.date));
-    pointRadius.push(5);
-    hoverRadius.push(6);
+    pointRadius.push(8);
+    hoverRadius.push(9);
   });
   Object.entries(dataLoerrach).map(([key, item], i) => {
     dataLoerrachCases.push(item.cases);
